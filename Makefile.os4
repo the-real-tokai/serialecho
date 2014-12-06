@@ -1,0 +1,52 @@
+#
+#   SerialEcho
+#   Dumps a line to serial debug output.
+#
+#   Copyright © 2005-2014 Christian Rosentreter
+#   All rights reserved.
+#
+#   This software is released under a three-clause BSD-style
+#   license, see the LICENCE document for details.
+#
+#
+#   $Id: Makefile.os4 18 2014-02-09 00:27:18Z tokai $
+#
+
+EXE     = SerialEcho
+VERSION = 50
+
+
+all: $(EXE).os4
+
+$(EXE).os4: serialecho.c version.h
+	vc -D__USE_INLINE__ +aosppc serialecho.c -o $@ -ldebug
+
+
+.PHONY: clean bump
+
+clean:
+	$(MAKE) --no-print-directory -f Makefile clean
+
+bump:
+	$(MAKE) --no-print-directory -f Makefile bump
+
+
+
+#  release
+#
+ARCHIVE = $(shell echo $(EXE) | sed -r "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")-$(VERSION).$(shell cat version.rev)
+
+.PHONY: archives
+archives: all
+	mkdir -p archives
+	rm -fr /t/$(ARCHIVE)-os4
+	rm -f archives/$(ARCHIVE)-os4.lha
+########
+	@echo "====> $(ARCHIVE)-os4.lha"
+	mkdir -p /t/$(ARCHIVE)-os4
+	cp $(EXE).os4    /t/$(ARCHIVE)-os4/$(EXE)
+	cp $(EXE).readme /t/$(ARCHIVE)-os4/ReadMe.txt
+	cp $(EXE).notes  /t/$(ARCHIVE)-os4/History.txt
+	cp LICENSE       /t/$(ARCHIVE)-os4/License.txt
+	protect t:$(ARCHIVE)-os4/SerialEcho +RWED
+	lha a -a -r archives/$(ARCHIVE)-os4.lha t:$(ARCHIVE)-os4

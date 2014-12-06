@@ -1,0 +1,83 @@
+Short:     Dumps a line to serial debug output.
+Author:    tokai@binaryriot.org (Christian Rosentreter)
+Uploader:  tokai@binaryriot.org (Christian Rosentreter)
+Version:   50.7
+Date:      09-Feb-2014
+Type:      util/cli
+
+
+
+SerialEcho 50.7
+Dumps a line to serial debug output
+
+Copyright © 2005-2014 Christian Rosentreter.
+All rights reserved.
+
+Introduction
+------------
+
+SerialEcho works like the AmigaDOS built-in command 'Echo',
+but its output is redirected to the serial port instead
+(which can be caught with another computer connected to
+the serial port or a tool like Sashimi).
+
+The MorphOS and AmigaOS m68k versions of SerialEcho are
+reentrant and can be made resident.
+
+
+
+Template
+--------
+
+/M,NOLINE/S
+
+NOLINE - no linefeed is dumped at end of output
+
+
+
+Usage Examples
+--------------
+
+Dump a single word:
+    > SerialEcho Foobar
+
+Dump multiple words/ single line:
+    > SerialEcho Foo Bar
+    > SerialEcho "Foo Bar"
+
+Dump multiple lines:
+    > SerialEcho "Foo*nBar"
+
+Dump a single line, but w/o linefeed:
+    > SerialEcho Foobar NOLINE
+
+
+
+Thanks
+------
+
+Jürgen 'antibike' Lucas 
+    - for the idea and spending a minute waiting until the first working
+      version of SerialEcho was done. :)
+
+Matthias 'mazze' Rustler
+    - AROS changes
+
+Stefan Blixth
+    - AROS build fixes 
+
+
+License/ Disclaimer
+-------------------
+
+see License.txt document.
+
+
+
+Credits
+-------
+
+Copyright © 2005-2014 Christian Rosentreter
+
+http://tokai.binaryriot.org/
+http://www.christianrosentreter.com/

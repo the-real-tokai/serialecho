@@ -1,0 +1,47 @@
+#
+#   SerialEcho
+#   Dumps a line to serial output.
+#
+#   Copyright © 2005-2014 Christian Rosentreter
+#   All rights reserved.
+#
+#   This software is released under a three-clause BSD-style 
+#   license, see the LICENCE document for details.
+#
+#
+#   $Id: mmakefile.src 21 2014-02-09 00:44:15Z tokai $
+#
+#
+#   AROS metamakefile
+#
+
+include $(TOP)/config/make.cfg
+
+#MM contrib-serialecho : linklibs includes
+
+EXE       := SerialEcho
+FILES     := serialecho
+TARGETDIR := $(AROS_C)
+
+RELEASEDIR := $(TOP)/releases
+PACKAGE    := serialecho.i386-aros.tar
+
+%build_prog mmake=contrib-serialecho progname=$(EXE) files=$(FILES) targetdir=$(TARGETDIR) \
+    uselibs="arossupport amiga arosc m" usestartup=no
+
+
+#MM contrib-serialecho-release : contrib-serialecho
+
+contrib-serialecho-release :
+	$(RM) $(RELEASEDIR)/serialecho
+	$(RM) $(TOP)/$(PACKAGE)
+	$(MKDIR) $(RELEASEDIR)/serialecho
+	$(CP) $(TARGETDIR)/$(EXE) $(RELEASEDIR)/serialecho
+	$(TARGET_STRIP) $(RELEASEDIR)/serialecho/$(EXE)
+	$(CP) LICENSE $(RELEASEDIR)/serialecho
+	$(CP) SerialEcho.readme $(RELEASEDIR)/serialecho
+	$(CP) SerialEcho.notes $(RELEASEDIR)/serialecho
+	tar -C $(RELEASEDIR) -cf $(TOP)/$(PACKAGE) serialecho
+	gzip  -f -9 $(TOP)/$(PACKAGE)
+
+%common

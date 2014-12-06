@@ -1,0 +1,49 @@
+$Id: SerialEcho.notes 19 2014-02-09 00:38:19Z tokai $
+
+
+SerialEcho
+
+50.7 (09.02.2014)
+	- Optimizations (strips down 40 bytes off the MorphOS binary)
+	- Prints now an empty line rather than nothing when no arguments
+	  are passed to match the behavior of 'Echo' command in this case.
+	- Disabled "__amigappc__" symbol and with that probably full
+	  MorphOS 0.x compatibility. MorphOS 1.4 is available for
+	  PowerUP systems, so the symbol has no longer real use.
+	(tokai)
+
+50.6 (02.04.2008)
+	- Do not leak DOSBase on exit for MorphOS, 68k and AROS builds.
+	  CloseLibrary() was lost after all the source code rearranging
+	  for the ports.
+	(tokai)
+
+	(24.09.2012)
+	- Fixed AROS build.
+	(Develin)
+
+50.5 (08.03.2008)
+	- Changed the entry point handling.
+	(tokai)
+
+50.4 (08.03.2008)
+	- AROS port
+	(mazze)
+
+50.3 (07.03.2008)
+	- Fixed a read from NULL when SerialEcho was used without
+	  arguments.
+	(tokai)
+
+50.2 (04.03.2008)
+	- OS4 port
+	(tokai)
+
+50.1 (01.03.2008)
+	- Use RawPutChar() instead KPrintF().
+	- 68k/SASC changes
+	(tokai)
+
+50.0 (16.01.2005)
+	- Initial release
+	(tokai)
