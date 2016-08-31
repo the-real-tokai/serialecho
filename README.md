@@ -16,5 +16,5 @@ Supported Operating Systems
 Binary Downloads
 ----------------
 
-This is a source code archive, but ready-built binaries for the above mentioned operation systems can be downloaded at https://tokai.binaryriot.org/public/
+This is a source code archive, but ready-built binaries for the above mentioned operating systems can be downloaded at https://tokai.binaryriot.org/public/
 
