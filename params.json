@@ -1,6 +1,6 @@
 {
   "name": "Serialecho",
   "tagline": "Dumps a line to serial debug output.",
-  "body": "SerialEcho\r\n==========\r\n\r\nDumps a line to serial debug output.\r\n\r\n\r\nSupported Operating Systems\r\n---------------------------\r\n\r\n* Commodore Amiga OS (680x0)\r\n* AROS (x86/ PowerPC/ …)\r\n* Hyperion OS4 (PowerPC)\r\n* MorphOS (PowerPC)\r\n\r\n\r\nBinary Downloads\r\n----------------\r\n\r\nThis is a source code archive, but ready-built binaries for the above mentioned operation systems can be downloaded at https://tokai.binaryriot.org/public/\r\n\r\n",
+  "body": "SerialEcho\r\n==========\r\n\r\nDumps a line to serial debug output.\r\n\r\n\r\nSupported Operating Systems\r\n---------------------------\r\n\r\n* Commodore Amiga OS (680x0)\r\n* AROS (x86/ PowerPC/ …)\r\n* Hyperion OS4 (PowerPC)\r\n* MorphOS (PowerPC)\r\n\r\n\r\nBinary Downloads\r\n----------------\r\n\r\nThis is a source code archive, but ready-built binaries for the above mentioned operating systems can be downloaded at https://tokai.binaryriot.org/public/\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
